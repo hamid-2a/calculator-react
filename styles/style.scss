@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600&display=swap');
+
+//color variables
+$white: #f2f2f2;
+$dark:#1d1e25;
+$gold: #e9a015;
+$light-blue: #44a9f7;
+$darker-blue: #008cf2;
+
+@mixin shadow {
+    box-shadow: inset 2px 2px 10px rgba(218, 218, 218, 0.527),
+        4px 2px 10px rgba(151, 171, 187, 0.48),
+        -4px -2px 10px rgb(255, 255, 255);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 350px;
+    height: 550px;
+    background-color: $white;
+    border-radius: 7px;
+    margin: 100px auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    display: grid;
+    grid-template: repeat(6, 1fr) / repeat(4, 1fr);
+    gap: 10px;
+}
+
+.display {
+    grid-area: 1/1/2/5;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    display: block;
+    text-align: right;
+    height: 100px;
+    border: 0.5px solid $gold;
+    border-radius: inherit;
+    cursor: text;
+    padding: 5px;
+    font-family: 'Dosis', sans-serif;
+    overflow-x: auto;
+
+    .with-linear-gradient {
+        border-style: solid;
+        border-width: 5px;
+        border-image: linear-gradient(45deg, rgb(0, 143, 104), rgb(250, 224, 66)) 1;
+    }
+
+    #history {
+        font-size: 1rem;
+        opacity: 0.4;
+        font-style: italic;
+    }
+
+    #result {
+        font-size: 2rem;
+        margin-top: 10px;
+        word-wrap: break-word;
+        font-weight: 600;
+    }
+}
+
+button {
+    background-color: $white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    border: none;
+
+    @include shadow();
+}
+
+button:active {
+    font-size: 1.6rem;
+    box-shadow: 0 0 0;
+}
+
+
+// Operators  ------------------------------------------------
+.operator {
+    font-weight: 400;
+    font-size: 2rem;
+    color: $gold;
+}
+
+#clear {
+    grid-area: 2/2/3/3;
+    font-size: 1.5rem;
+    color: red;
+}
+
+#equal {
+    grid-area: 6/4/7/5;
+}
+
+#delete {
+    grid-area: 6/3/7/4;
+    font-size: 1.2rem;
+}
+
+//Numbers ----------------------------------------------
+.number {
+    font-weight: 300;
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+// Dark Mode
+.dark {
+    background-color: $dark;
+    .button {
+        border-radius: 10px;
+        background: linear-gradient(145deg, #1a1b21, #1f2028);
+        box-shadow: 6px 6px 7px #18191f,
+            -6px -6px 7px #22232b;
+    }
+
+    .button:active {
+        box-shadow: none;
+    }
+
+    .number {
+        color: #f2f2f2;
+    }
+
+    .display {
+        background-color: $dark;
+        color: #f2f2f2;
+    }
+
+    .darkMode-container {
+        color: #f2f2f2;
+    }
+}
